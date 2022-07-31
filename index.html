@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>PHOTO GALLERY</h1>
+        <div class="menu">
+            <input type="text" class="search_input">
+            <button class="search_btn">Search</button>
+            <button class="search_filter">Filter by</button>
+
+            <ul class="filter_menu">
+                <div>
+                    <input type="checkbox" name="Name" id="1">
+                    <label for="1">Name</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="Gender" id="2">
+                    <label for="2">Gender</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="House" id="3">
+                    <label for="3">House</label>
+                </div>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="main">
+       
+        <div class="photos">
+
+        </div>
+    </div>
+    <script src="/Img.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="/script.js"></script>
+</body>
+
+</html>

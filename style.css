@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+}
+
+.main {
+    width: 1500px;
+    margin-left: 400px;
+
+}
+
+h1 {
+    /* font-size: 30px;
+    margin-right: 300px;
+    text-align: center; */
+}
+.menu{
+    padding: 20px;
+}
+.photos {
+
+    display: flex;
+    /* justify-content: space-evenly;
+align-items: center; */
+    flex-wrap: wrap;
+}
+
+.photo {
+    width: auto;
+    height: 400px;
+    overflow: hidden;
+    display: block; 
+    margin: 10px auto;
+}
+.photo_emp{
+    width:300px;
+    height: 400px;
+    overflow: hidden;
+    display: block; 
+    margin: 10px auto;
+    margin-right: 25px;
+}
+
+/* img {
+    width: auto;
+    height: 200px;
+    overflow: hidden;
+} */
+
+.block {
+    
+    width: auto;
+    padding: 40px;
+    overflow: hidden;
+    width: 300px;
+    margin: 20px;
+    margin-bottom: 20px;
+    border: 5px solid black;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.info {
+    font-size: 25px;
+    font-weight: bold;
+    border-top: 5px solid black;
+    padding: 15px;
+}
+
+
+
+.header{
+    background-color: white;
+    position: sticky;
+    top: 0px;
+    padding: 20px;
+    display: flex; 
+    justify-content: space-around;
+    width: 100%;
+    height: 70px;;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.search_input{
+    width: 380px;
+    height: 40px;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.32) ;
+    padding: 0 5px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+.search_btn{
+    background-color: blue;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    height: 42px;
+    width: 60px ;
+    margin-left: 20px;
+    font-weight: 550;
+    cursor: pointer;
+}
+.search_filter{
+    position: relative;
+    background-color: blue;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    height: 42px;
+    width: 80px ;
+    margin-left: 20px;
+    font-weight: 550;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.filter_menu{
+    display: none;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.32) ;
+    border-radius: 5px;
+    right: 283px;
+    top: 68px;
+    position: absolute;
+    background-color: white;
+    
+
+}   
+.header:hover .filter_menu {
+    display: block;
+}
+.search_btn:active{
+    box-shadow:  0px 0px 5px 2px rgba(0,0,0,0.32) ;
+}
+.search_filter:active{
+    box-shadow:  0px 0px 5px 2px rgba(0,0,0,0.32) ;
+}

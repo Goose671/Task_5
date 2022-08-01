@@ -1,45 +1,39 @@
-// const { response } = require("express");
-let responseArr = [];
-const searchInput = document.getElementsByClassName('search_input')
-let searchBtn  = document.getElementsByClassName('search_btn')
-searchBtn = document.addEventListener('click', search[responseArr])
-
-function search(array){
-
-    let searchText = searchInput.value;
-
-    let filteredArray = array.filter(function(curentValue){
-
-        return curentValue = searchText;
-
-    });
-    console.log(filteredArray)
-    mainFunction(filteredArray);
-
-};
-
-
+let characters = [];
+const searchInput = document.querySelector('.search_input');
+const searchBtn = document.querySelector('.search_btn');
+searchBtn.addEventListener('click', search);
 
 axios.get('http://hp-api.herokuapp.com/api/characters')
     .then(function (response) {
-        responseArr = response.data
-        mainFunction(response);
-        
+        const { data } = response;
+        data.splice(24, data.length);
+        characters = data.map(character => new Img(character.image, character.name, character.gender, character.house));
+        renderListOfCharacters(characters);
+    }).catch(err => {
+        console.error(err);
     });
 
-function mainFunction(response) {
-
-    let arrOfPhotos = response.data;
-
-    arrOfPhotos.splice(24,24);
-
-    arrOfPhotos.splice(99,100000);
-
-    arrOfPhotos.forEach(Image => {
-        const img = new Img(Image.image, Image.name,Image.gender,Image.house)
-        img.render();
-    });
+function renderListOfCharacters(list) {
+    list.forEach(item => {
+        item.render();
+    })
 }
+
+function clearListOfCharacters() {
+    const list = document.querySelector('.photos');
+    while(list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
+}
+
+function search() {
+    clearListOfCharacters();
+    const searchText = searchInput.value.toLowerCase();
+    const filteredArray = characters.filter(character => {
+       return character.name.toLowerCase().includes(searchText);
+    });
+    renderListOfCharacters(filteredArray);
+};
 
 
 

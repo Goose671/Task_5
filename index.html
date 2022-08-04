@@ -15,23 +15,13 @@
         <div class="menu">
             <input type="text" class="search_input">
             <button class="search_btn">Search</button>
-            <button class="search_filter">Filter by</button>
+            <!-- <button class="filter_menu" id="btn">Filter by</button> -->
 
-            <ul class="filter_menu">
-                <div>
-                    <input type="checkbox" name="Name" id="1">
-                    <label for="1">Name</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="Gender" id="2">
-                    <label for="2">Gender</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="House" id="3">
-                    <label for="3">House</label>
-                </div>
-
-            </ul>
+            <select  class="search_filter">
+                <option value="1">All</option>
+                <option value="2">Male</option>
+                <option value="3">Female</option>
+            </select>
         </div>
     </div>
 

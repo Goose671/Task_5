@@ -1,8 +1,9 @@
 let characters = [];
 const searchInput = document.querySelector('.search_input');
 const searchBtn = document.querySelector('.search_btn');
+const selector = document.querySelector('.search_filter');
 searchBtn.addEventListener('click', search);
-
+// selector.addEventListener('click', filterByGender);
 axios.get('http://hp-api.herokuapp.com/api/characters')
     .then(function (response) {
         const { data } = response;
@@ -21,24 +22,36 @@ function renderListOfCharacters(list) {
 
 function clearListOfCharacters() {
     const list = document.querySelector('.photos');
-    while(list.firstChild) {
+    while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
 }
 
 function search() {
     clearListOfCharacters();
+    const selectGender = selector.value;
+    let filteredArrayByGender;
+    if (selectGender == 1) {
+        filteredArrayByGender = characters;
+    };
+    if (selectGender == 2) {
+        filteredArrayByGender = characters.filter(character => {
+              
+            const str = character.gender.charAt(0).toUpperCase() + character.gender.slice(1);
+            console.log(str);
+            return str.includes('Male');
+        });
+    };
+    if (selectGender == 3) {
+        filteredArrayByGender = characters.filter(character => {
+            return character.gender.includes('female');
+        });
+    };
+
     const searchText = searchInput.value.toLowerCase();
-    const filteredArray = characters.filter(character => {
-       return character.name.toLowerCase().includes(searchText);
+    let filteredArray = filteredArrayByGender.filter(character => {
+        return character.name.toLowerCase().includes(searchText);
     });
     renderListOfCharacters(filteredArray);
 };
-
-
-
-
-
-
-
 

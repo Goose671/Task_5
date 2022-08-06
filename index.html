@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task_5</title>
     <link rel="stylesheet" href="style.css">
+    <link href="styles/multiselect.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
             <button class="search_btn">Search</button>
             <!-- <button class="filter_menu" id="btn">Filter by</button> -->
 
-            <select  class="search_filter">
+            <select id="testSelect1"  class="search_filter" multiple >
                 <option value="1">All</option>
                 <option value="2">Male</option>
                 <option value="3">Female</option>
@@ -32,6 +33,7 @@
 
         </div>
     </div>
+    <script src="multiselect.min.js"></script>
     <script src="./Img.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./script.js"></script>

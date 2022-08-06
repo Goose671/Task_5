@@ -30,9 +30,9 @@ function clearListOfCharacters() {
 function search() {
     clearListOfCharacters();
     const selectGender = selector.value;
-    let filteredArrayByGender;
+    let filteredArrayByGender = characters;
     if (selectGender == 1) {
-        filteredArrayByGender = characters;
+        
     };
     if (selectGender == 2) {
         filteredArrayByGender = characters.filter(character => {
@@ -55,3 +55,12 @@ function search() {
     renderListOfCharacters(filteredArray);
 };
 
+document.multiselect('#testSelect1')
+		.setCheckBoxClick("checkboxAll", function(target, args) {
+			console.log("Checkbox 'Select All' was clicked and got value ", args.checked);
+		})
+		.setCheckBoxClick("1", function(target, args) {
+			console.log("Checkbox for item with value '1' was clicked and got value ", args.checked);
+		});
+
+	

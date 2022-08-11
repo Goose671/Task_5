@@ -1,5 +1,5 @@
+let filteredCharacters = [];
 let characters = [];
-let arr = [];
 const searchInput = document.querySelector('.search_input');
 const searchBtn = document.querySelector('.search_btn');
 const selector = document.querySelector('#genderSelect');
@@ -15,7 +15,7 @@ axios.get('http://hp-api.herokuapp.com/api/characters')
         const { data } = response;
         data.splice(24, data.length);
         characters = data.map(character => new Img(character.image, character.name, character.gender, character.house));
-        arr = data.map(character => new Img(character.image, character.name, character.gender, character.house));
+        filteredCharacters = characters;
         renderListOfCharacters(characters);
     }).catch(err => {
         console.error(err);
@@ -36,44 +36,45 @@ function clearListOfCharacters(list) {
 function search() {
     clearListOfCharacters(characters);
     const searchText = searchInput.value.toLowerCase();
-    let filteredArray = characters.filter(character => {
+    filteredCharacters =  filteredCharacters.filter(character => {
         return character.name.toLowerCase().includes(searchText);
     });
-    renderListOfCharacters(filteredArray);
-    characters = filteredArray;
-    return characters;
+    renderListOfCharacters(filteredCharacters);
 };
 
 function filterByGender() {
     clearListOfCharacters(characters);
     const selectedGender = this.value;
     if (selectedGender == 'all') {
+        search()
+        filteredCharacters = characters;
         renderListOfCharacters(characters);
-    };
-    let filteredArray = characters.filter(character =>{
-       return character.gender.toLowerCase() === selectedGender
-    });
-    renderListOfCharacters(filteredArray);
-    characters = filteredArray;
-    return characters;
+    } else{
+        filteredCharacters = characters.filter(character => character.gender.toLowerCase() === selectedGender);
+        renderListOfCharacters(filteredCharacters);
+        search()
+       
+    }
+    
+    
 }
 
 function filterByHouse(){
     clearListOfCharacters(characters);
     const selectedHouse = this.value;
     if (selectedHouse == 'all') {
+        search()
+        filteredCharacters = characters;
         renderListOfCharacters(characters);
-    };
-    let filteredArray = characters.filter(character =>{
-        return character.house.toLowerCase() === selectedHouse
-    } );
-    renderListOfCharacters(filteredArray);
-    characters = filteredArray;
-    return characters;
+    } else{
+        filteredCharacters = characters.filter(character => character.house.toLowerCase() === selectedHouse);
+        renderListOfCharacters( filteredCharacters);
+        search()
+    }
+   
+    
 }	
 
 function reset(){
-    clearListOfCharacters(characters);
-    renderListOfCharacters(arr);
-    searchInput.value = "";
+    window.location.reload()
 };

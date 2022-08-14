@@ -10,7 +10,7 @@ class Img {
     render() {
         const listOfPhotos = document.querySelector('.photos')
 
-        let photo_div = document.createElement("div")
+        const photo_div = document.createElement("div")
 
         this.ref = photo_div;
 
@@ -18,7 +18,7 @@ class Img {
 
         listOfPhotos.append(photo_div)
 
-        let photo = document.createElement('img')
+        const photo = document.createElement('img')
 
         photo.classList.add('img')
 
@@ -28,22 +28,21 @@ class Img {
 
         photo_div.append(photo)
 
-        let info_div = document.createElement('div')
+        const info_div = document.createElement('div')
 
         info_div.classList.add('info')
 
         photo_div.append(info_div)
 
-        let info_p_name = document.createElement('p')
+        const info_p_name = document.createElement('p')
 
         info_p_name.classList.add('name_1')
-
 
         info_p_name.innerHTML = 'Name: '  
 
         info_div.append(info_p_name)
 
-        let info_p_name_span = document.createElement('div')
+        const info_p_name_span = document.createElement('div')
 
         info_p_name_span.classList.add('name_2')
 
@@ -51,7 +50,7 @@ class Img {
 
         info_p_name.append(info_p_name_span)
 
-        let info_p_gender = document.createElement('p')
+        const info_p_gender = document.createElement('p')
 
         info_p_gender.classList.add('gender')
 
@@ -59,7 +58,7 @@ class Img {
 
         info_div.append(info_p_gender)
 
-        let info_p_house = document.createElement('p')
+        const info_p_house = document.createElement('p')
 
         info_p_house.innerHTML = `House: ${this.house ? this.house : ' - '}`;
 
